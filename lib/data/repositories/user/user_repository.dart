@@ -1,5 +1,5 @@
 import 'package:lists_together/domain/models/user/user.dart';
 
 abstract class UserRepository {
-  Future<User> getUser();
+  Future<User> getUserById(int id);
 }

@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$User {
 
- String get name; List<UserList> get lists;
+ int get id; String get name; List<UserList> get lists;
 /// Create a copy of User
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -29,16 +29,16 @@ $UserCopyWith<User> get copyWith => _$UserCopyWithImpl<User>(this as User, _$ide
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is User&&(identical(other.name, name) || other.name == name)&&const DeepCollectionEquality().equals(other.lists, lists));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is User&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&const DeepCollectionEquality().equals(other.lists, lists));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,const DeepCollectionEquality().hash(lists));
+int get hashCode => Object.hash(runtimeType,id,name,const DeepCollectionEquality().hash(lists));
 
 @override
 String toString() {
-  return 'User(name: $name, lists: $lists)';
+  return 'User(id: $id, name: $name, lists: $lists)';
 }
 
 
@@ -49,7 +49,7 @@ abstract mixin class $UserCopyWith<$Res>  {
   factory $UserCopyWith(User value, $Res Function(User) _then) = _$UserCopyWithImpl;
 @useResult
 $Res call({
- String name, List<UserList> lists
+ int id, String name, List<UserList> lists
 });
 
 
@@ -66,9 +66,10 @@ class _$UserCopyWithImpl<$Res>
 
 /// Create a copy of User
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? lists = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? lists = null,}) {
   return _then(_self.copyWith(
-name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,lists: null == lists ? _self.lists : lists // ignore: cast_nullable_to_non_nullable
 as List<UserList>,
   ));
@@ -81,9 +82,10 @@ as List<UserList>,
 @JsonSerializable()
 
 class _User implements User {
-  const _User({required this.name, required final  List<UserList> lists}): _lists = lists;
+  const _User({required this.id, required this.name, required final  List<UserList> lists}): _lists = lists;
   factory _User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 
+@override final  int id;
 @override final  String name;
  final  List<UserList> _lists;
 @override List<UserList> get lists {
@@ -106,16 +108,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _User&&(identical(other.name, name) || other.name == name)&&const DeepCollectionEquality().equals(other._lists, _lists));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _User&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&const DeepCollectionEquality().equals(other._lists, _lists));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,const DeepCollectionEquality().hash(_lists));
+int get hashCode => Object.hash(runtimeType,id,name,const DeepCollectionEquality().hash(_lists));
 
 @override
 String toString() {
-  return 'User(name: $name, lists: $lists)';
+  return 'User(id: $id, name: $name, lists: $lists)';
 }
 
 
@@ -126,7 +128,7 @@ abstract mixin class _$UserCopyWith<$Res> implements $UserCopyWith<$Res> {
   factory _$UserCopyWith(_User value, $Res Function(_User) _then) = __$UserCopyWithImpl;
 @override @useResult
 $Res call({
- String name, List<UserList> lists
+ int id, String name, List<UserList> lists
 });
 
 
@@ -143,9 +145,10 @@ class __$UserCopyWithImpl<$Res>
 
 /// Create a copy of User
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? lists = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? lists = null,}) {
   return _then(_User(
-name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,lists: null == lists ? _self._lists : lists // ignore: cast_nullable_to_non_nullable
 as List<UserList>,
   ));

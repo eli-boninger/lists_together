@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$UserListItem {
 
- String get name; bool get completed;
+ int get id; String get name; bool get completed;
 /// Create a copy of UserListItem
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -29,16 +29,16 @@ $UserListItemCopyWith<UserListItem> get copyWith => _$UserListItemCopyWithImpl<U
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UserListItem&&(identical(other.name, name) || other.name == name)&&(identical(other.completed, completed) || other.completed == completed));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UserListItem&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.completed, completed) || other.completed == completed));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,completed);
+int get hashCode => Object.hash(runtimeType,id,name,completed);
 
 @override
 String toString() {
-  return 'UserListItem(name: $name, completed: $completed)';
+  return 'UserListItem(id: $id, name: $name, completed: $completed)';
 }
 
 
@@ -49,7 +49,7 @@ abstract mixin class $UserListItemCopyWith<$Res>  {
   factory $UserListItemCopyWith(UserListItem value, $Res Function(UserListItem) _then) = _$UserListItemCopyWithImpl;
 @useResult
 $Res call({
- String name, bool completed
+ int id, String name, bool completed
 });
 
 
@@ -66,9 +66,10 @@ class _$UserListItemCopyWithImpl<$Res>
 
 /// Create a copy of UserListItem
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? completed = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? completed = null,}) {
   return _then(_self.copyWith(
-name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,completed: null == completed ? _self.completed : completed // ignore: cast_nullable_to_non_nullable
 as bool,
   ));
@@ -81,9 +82,10 @@ as bool,
 @JsonSerializable()
 
 class _UserListItem implements UserListItem {
-  const _UserListItem({required this.name, required this.completed});
+  const _UserListItem({required this.id, required this.name, required this.completed});
   factory _UserListItem.fromJson(Map<String, dynamic> json) => _$UserListItemFromJson(json);
 
+@override final  int id;
 @override final  String name;
 @override final  bool completed;
 
@@ -100,16 +102,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UserListItem&&(identical(other.name, name) || other.name == name)&&(identical(other.completed, completed) || other.completed == completed));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UserListItem&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.completed, completed) || other.completed == completed));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,completed);
+int get hashCode => Object.hash(runtimeType,id,name,completed);
 
 @override
 String toString() {
-  return 'UserListItem(name: $name, completed: $completed)';
+  return 'UserListItem(id: $id, name: $name, completed: $completed)';
 }
 
 
@@ -120,7 +122,7 @@ abstract mixin class _$UserListItemCopyWith<$Res> implements $UserListItemCopyWi
   factory _$UserListItemCopyWith(_UserListItem value, $Res Function(_UserListItem) _then) = __$UserListItemCopyWithImpl;
 @override @useResult
 $Res call({
- String name, bool completed
+ int id, String name, bool completed
 });
 
 
@@ -137,9 +139,10 @@ class __$UserListItemCopyWithImpl<$Res>
 
 /// Create a copy of UserListItem
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? completed = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? completed = null,}) {
   return _then(_UserListItem(
-name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,completed: null == completed ? _self.completed : completed // ignore: cast_nullable_to_non_nullable
 as bool,
   ));

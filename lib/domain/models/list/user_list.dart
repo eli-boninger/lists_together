@@ -7,6 +7,7 @@ part 'user_list.g.dart';
 @freezed
 abstract class UserList with _$UserList {
   const factory UserList({
+    required int id,
     required String name,
     required List<UserListItem> items,
   }) = _UserList;
