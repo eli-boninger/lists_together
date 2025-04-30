@@ -1,29 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:lists_together/domain/models/list/user_list.dart';
+import 'package:lists_together/domain/models/list/user_list_item.dart';
 import 'package:lists_together/ui/core/ui/app_page.dart';
-import 'package:lists_together/ui/home/view_models/home_viewmodel.dart';
+import 'package:lists_together/ui/list/view_models/list_viewmodel.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key, required this.viewModel});
-
-  final HomeViewModel viewModel;
+class ListScreen extends StatefulWidget {
+  final int id;
+  final ListViewModel viewModel;
+  const ListScreen({super.key, required this.id, required this.viewModel});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<ListScreen> createState() => _ListScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _ListScreenState extends State<ListScreen> {
   @override
   void initState() {
     super.initState();
-    widget.viewModel.loadUserCommand.execute(1);
+    widget.viewModel.loadUserListCommand.execute(widget.id);
   }
 
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
-      valueListenable: widget.viewModel.loadUserCommand.results,
+      valueListenable: widget.viewModel.loadUserListCommand.results,
       builder: (BuildContext context, result, _) {
         if (result.isExecuting) {
           return Center(
@@ -39,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
           return Center(child: Text('Error'));
         }
 
-        final List<UserList> lists = result.data!.lists;
+        final List<UserListItem> items = result.data!.items;
 
         return AppPage(
           pageWidget: Column(
@@ -48,14 +47,16 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               Text('Lists', style: Theme.of(context).textTheme.headlineLarge),
               ListView.builder(
-                itemCount: lists.length,
+                itemCount: items.length,
                 itemBuilder: (context, index) {
                   return TextButton(
                     child: ListTile(
                       leading: Icon(Icons.keyboard_double_arrow_right),
-                      title: Text(lists[index].name),
+                      title: Text(items[index].name),
                     ),
-                    onPressed: () => context.go("/lists/${lists[index].id}"),
+                    onPressed: () {
+                      print('pressed');
+                    },
                   );
                 },
                 shrinkWrap: true,

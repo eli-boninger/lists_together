@@ -6,8 +6,6 @@ import 'package:lists_together/domain/models/user/user.dart';
 class HomeViewModel extends ChangeNotifier {
   final UserRepository _userRepository;
   late Command<int, User?> loadUserCommand;
-  User? _user;
-  User? get user => _user;
 
   HomeViewModel({required UserRepository userRepository})
     : _userRepository = userRepository {

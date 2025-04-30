@@ -6,12 +6,74 @@
             {
                 "id": 1,
                 "name": "Wegman's",
-                "items": []
+                "items": [
+                    {
+                        "id": 1,
+                        "name": "GF Flour",
+                        "completed": false
+                    },
+                    {
+                        "id": 2,
+                        "name": "Currants",
+                        "completed": false
+                    },
+                    {
+                        "id": 3,
+                        "name": "Mint",
+                        "completed": false
+                    },
+                    {
+                        "id": 4,
+                        "name": "Apples",
+                        "completed": false
+                    },
+                    {
+                        "id": 5,
+                        "name": "frozen pizza",
+                        "completed": false
+                    },
+                    {
+                        "id": 6,
+                        "name": "ice cream",
+                        "completed": false
+                    },
+                    {
+                        "id": 7,
+                        "name": "Beer",
+                        "completed": true
+                    }
+                ]
             },
             {
                 "id": 2,
                 "name": "Daido",
-                "items": []
+                "items": [
+                    {
+                        "id": 8,
+                        "name": "Mirin",
+                        "completed": false
+                    },
+                    {
+                        "id": 9,
+                        "name": "tobanjian",
+                        "completed": false
+                    },
+                    {
+                        "id": 10,
+                        "name": "White sesame seed",
+                        "completed": true
+                    },
+                    {
+                        "id": 11,
+                        "name": "GF soba",
+                        "completed": true
+                    },
+                    {
+                        "id": 12,
+                        "name": "mochiko",
+                        "completed": true
+                    }
+                ]
             }
         ]
     },

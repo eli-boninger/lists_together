@@ -1,3 +1,5 @@
+import 'package:lists_together/data/repositories/list/user_list_repository.dart';
+import 'package:lists_together/data/repositories/list/user_list_repository_local.dart';
 import 'package:lists_together/data/repositories/user/user_repository.dart';
 import 'package:lists_together/data/repositories/user/user_repository_local.dart';
 import 'package:lists_together/data/services/local/local_data_service.dart';
@@ -12,6 +14,12 @@ List<SingleChildWidget> get providersLocal {
           (context) =>
               UserRepositoryLocal(localDataService: context.read())
                   as UserRepository,
+    ),
+    Provider(
+      create:
+          (context) =>
+              UserListRepositoryLocal(localDataService: context.read())
+                  as UserListRepository,
     ),
   ];
 }
