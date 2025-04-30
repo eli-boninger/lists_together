@@ -1,18 +1,22 @@
 [
     {
+        "id": 1,
         "name": "Eli Boninger",
         "lists": [
             {
+                "id": 1,
                 "name": "Wegman's",
                 "items": []
             },
             {
+                "id": 2,
                 "name": "Daido",
                 "items": []
             }
         ]
     },
     {
+        "id": 2,
         "name": "Hanako Brais",
         "lists": []
     }

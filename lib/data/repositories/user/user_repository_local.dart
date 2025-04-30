@@ -9,8 +9,8 @@ class UserRepositoryLocal implements UserRepository {
   final LocalDataService _localDataService;
 
   @override
-  Future<User> getUserById(int id) {
-    // TODO: implement getUser
-    throw UnimplementedError();
+  Future<User> getUserById(int id) async {
+    final User user = await _localDataService.getUserById(id);
+    return user;
   }
 }
