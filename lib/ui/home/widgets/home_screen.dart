@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lists_together/domain/models/user/user.dart';
+import 'package:lists_together/ui/core/ui/app_page.dart';
 import 'package:lists_together/ui/home/view_models/home_viewmodel.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -14,13 +14,36 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return ListenableBuilder(
-      listenable: widget.viewModel.loadUserCommand,
-      builder: (BuildContext context, _) {
-        if (widget.viewModel.user == null) {
-          return Text('unloaded');
+    return ValueListenableBuilder(
+      valueListenable: widget.viewModel.loadUserCommand.results,
+      builder: (BuildContext context, result, _) {
+        if (result.isExecuting) {
+          return Center(
+            child: SizedBox(
+              width: 50.0,
+              height: 50.0,
+              child: CircularProgressIndicator(),
+            ),
+          );
         }
-        return Text(widget.viewModel.user!.name);
+
+        if (!result.hasData) {
+          // TODO: handle error
+        }
+        return AppPage(
+          pageWidget: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Welcome', style: Theme.of(context).textTheme.headlineLarge),
+              Text(
+                result.data!.name,
+                style: Theme.of(context).textTheme.bodyLarge,
+                selectionColor: Theme.of(context).splashColor,
+              ),
+            ],
+          ),
+        );
       },
     );
   }
