@@ -10,12 +10,12 @@ class AppNavigationBar extends StatelessWidget {
         NavigationDestination(
           icon: Icon(Icons.home_outlined),
           selectedIcon: Icon(Icons.home),
-          label: 'Home',
+          label: 'Lists',
         ),
         NavigationDestination(
-          icon: Icon(Icons.checklist_outlined),
-          selectedIcon: Icon(Icons.checklist),
-          label: 'Lists',
+          icon: Icon(Icons.landscape_outlined),
+          selectedIcon: Icon(Icons.landscape),
+          label: 'View all',
         ),
         NavigationDestination(
           icon: Icon(Icons.account_circle_outlined),
